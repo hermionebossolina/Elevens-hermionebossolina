@@ -17,6 +17,7 @@ public class CardTester {
 	    rank = "eight";
 	    pointValue = 7;
 	    Card d = new Card(suit, rank, pointValue);
+	    //Card.matches(c);
 	    System.out.println(d);
 	    suit = "5";
 	    rank = "7";
