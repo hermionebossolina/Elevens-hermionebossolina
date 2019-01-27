@@ -3,9 +3,6 @@ import java.util.ArrayList;
 
 /**
  * The ElevensBoard class represents the board in a game of Elevens.
- * @author hermionebossolina - 01/25/2019
- * 
- * 
  */
 public class ElevensBoard extends Board {
 
