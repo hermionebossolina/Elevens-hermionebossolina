@@ -53,7 +53,7 @@ public class ElevensBoard extends Board {
      */
     @Override
     public boolean isLegal(List<Integer> selectedCards) {
-        if(containsPairSum11(selectedCards)==true && containsJQK(selectedCards)==true){return true;} 
+        if(containsPairSum11(selectedCards)==true || containsJQK(selectedCards)==true){return true;} 
         return false;
     }
 
@@ -83,8 +83,8 @@ public class ElevensBoard extends Board {
     private boolean containsPairSum11(List<Integer> selectedCards) {
         for(int i = 0; i<selectedCards.size();i++){
              for(int j = i+1; j<selectedCards.size();j++){
-                Card card_i = cardAt(i);
-                Card card_j = cardAt(j);
+                Card card_i = cardAt(selectedCards.get(i));
+                Card card_j = cardAt(selectedCards.get(j));
                 if(card_i.pointValue() + card_j.pointValue() == 11){
                      return true;
                 }
@@ -106,7 +106,7 @@ public class ElevensBoard extends Board {
         int queen = 0;
         int king = 0;
         for(int i = 0; i<selectedCards.size();i++){
-            Card card_i = cardAt(i);
+            Card card_i = cardAt(selectedCards.get(i));
             String word = card_i.rank();
             if(word.equals("jack")){
                jack++;
