@@ -1,0 +1,26 @@
+private boolean containsPairSum11(List<Integer> selectedCards){  //incorrect code implementation
+for(int i = 0; i<selectedCards.size();i++){
+             for(int j = i+1; j<selectedCards.size();j++){
+                Card card_i = cardAt(i);     //should be : Card card_i = cardAt(selectedCards.get(i));
+                Card card_j = cardAt(j);     //should be : Card card_j = cardAt(selectedCards.get(j));
+                if(card_i.pointValue() + card_j.pointValue() == 11){
+                     return true;
+                }
+             }
+        }
+      return false;
+      }
+      
+Should be :
+  private boolean containsPairSum11(List<Integer> selectedCards) {
+        for(int i = 0; i<selectedCards.size();i++){
+             for(int j = i+1; j<selectedCards.size();j++){
+                Card card_i = cardAt(selectedCards.get(i));
+                Card card_j = cardAt(selectedCards.get(j));
+                if(card_i.pointValue() + card_j.pointValue() == 11){
+                     return true;
+                }
+             }
+        }
+      return false;
+   }
