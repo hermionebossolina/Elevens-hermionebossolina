@@ -1,13 +1,14 @@
 /**
  * This class provides a convenient way to test shuffling methods.
  */
+import java.util.Random;
 public class Shuffler {
 
-	/**
-	 * The number of consecutive shuffle steps to be performed in each call
-	 * to each sorting procedure.
-	 */
-	private static final int SHUFFLE_COUNT = 1;
+    /**
+     * The number of consecutive shuffle steps to be performed in each call
+     * to each sorting procedure.
+     */
+    private static final int SHUFFLE_COUNT = 3;
 
 
 	/**
@@ -17,7 +18,7 @@ public class Shuffler {
 	public static void main(String[] args) {
 		System.out.println("Results of " + SHUFFLE_COUNT +
 								 " consecutive perfect shuffles:");
-		int[] values1 = {0, 1, 2, 3};
+		int[] values1 = {0, 1, 2, 3, 4, 6, 8, 95};
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
 			perfectShuffle(values1);
 			System.out.print("  " + j + ":");
@@ -30,7 +31,7 @@ public class Shuffler {
 
 		System.out.println("Results of " + SHUFFLE_COUNT +
 								 " consecutive efficient selection shuffles:");
-		int[] values2 = {0, 1, 2, 3};
+		int[] values2 = {0, 1, 2, 3, 4, 6, 8, 95};
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
 			selectionShuffle(values2);
 			System.out.print("  " + j + ":");
@@ -50,7 +51,21 @@ public class Shuffler {
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
 	public static void perfectShuffle(int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+	     int[] shuffled = new int [values.length];
+	     int k = 0;
+	     int j;
+	     for(j = 0; j<(values.length+1)/2; j++){
+	         shuffled[k] = values[j];
+	         k = k+2;//k+=2
+	     }
+	     k = 1;
+	     for(j = (values.length+1)/2; j<values.length;j++){
+	          shuffled[k] = values[j];
+	          k = k+2;
+	     }
+	     for(int i = 0; i<values.length;i++){
+	         values[i]=shuffled[i];
+	     }
 	}
 
 	/**
@@ -65,6 +80,13 @@ public class Shuffler {
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
 	public static void selectionShuffle(int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+	    Random rand = new Random();
+	    int temp;
+	       for(int i = values.length-1;i>0;i--){
+		    int j = rand.nextInt(i+1);
+		    temp = values[j];
+		    values[j] = values[i];
+		    values[i] = temp;
+		  }
 	}
 }

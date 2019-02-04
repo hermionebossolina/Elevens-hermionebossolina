@@ -51,6 +51,9 @@ public class DeckTester {
 		System.out.println();
 		System.out.println();
 
-		/* *** TO BE COMPLETED IN ACTIVITY 4 *** */
+		String [] rank  = {"ace","two","three","four","five","six","seven","eight","nine","ten","jack", "queen", "king"};
+		String[] suit = {"diamond", "heart","clubs","spades"};
+		int[] values = {1,2,3,4,5,6,7,8,9,10,11, 12,};
+		Deck c = new Deck(ranks, suits, values);
 	}
 }
